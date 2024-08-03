@@ -1,11 +1,10 @@
 #include "header.h"
 
-int	ft_get_predecence(char *operator)
+int	ft_get_predecence(char *token)
 {
-	if (ft_strncmp(operator, "+", 1) || ft_strncmp(operator, "-", 1))
+	if (token[0] == '+' || token[0] == '-')
 		return (1);
-	else if (ft_strncmp(operator, "*", 1) || ft_strncmp(operator, "/", 1))
+	if (token[0] == '*' || token[0] == '/')
 		return (2);
-	else
-		return (3);
+	return (0);
 }

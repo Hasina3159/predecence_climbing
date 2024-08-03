@@ -13,11 +13,11 @@ OBJS        = $(patsubst $(SRCS_PATH)/%.c,$(OBJS_PATH)/%.o,$(SRCS))
 
 $(OBJS_PATH)/%.o: $(SRCS_PATH)/%.c
 	$(MKDIR_P) $(dir $@)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) -c $< -o $@
 
 $(NAME): $(OBJS)
 	make -C libft
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -L./libft -lft
+	$(CC) $(OBJS) -o $(NAME) -L./libft -lft -lm
 
 all: $(NAME)
 
